@@ -2,4 +2,4 @@ CPP=g++
 ARGS=-g -std=c++17
 
 all:
-	$(CPP) main.cpp $(ARGS) -o main.exe
+	$(CPP) main.cpp BackgroundColor.cpp $(ARGS) -o main

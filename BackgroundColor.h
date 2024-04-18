@@ -16,26 +16,27 @@ struct RGBColor{
 class BackgroundColor {
 
   private:
-    /// Each corner has a color associated with.
+    /// Cada canto tem uma cor associada.
     RGBColor corners[4]={{0,0,0},{0,0,0},{0,0,0},{0,0,0}};
     /// Corner indices.
     enum Corners_e {
-      bl=0, //!< Bottom left corner.
-      tl,   //!< Top left corner.
-      tr,   //!< Top right corner.
-      br    //!< Bottom right corner.
+      bl=0, //!< Bottom left corner   --- canto inferior esquerdo
+      tl,   //!< Top left corner      --- canto superior esquerdo
+      tr,   //!< Top right corner     --- canto superior direito
+      br    //!< Bottom right corner  --- canto inferior direito
     };
 
-    /// Return the linearly interpolated color in [A;B], based on the parameter \f$0\leq t \leq 1.\f$
+    /// retornar a cor interpolada linearmente em [A;B], baseada no parametro t onde t \in [0,1] intervalo real
     RGBColor lerp( const RGBColor &A, const RGBColor &B, real_type t ) const;
 
   public:
+    
     BackgroundColor();
-    /// Ctro receives a list of four colors, for each corner.
+    /// recebe uma lista de quatro cores, para cada canto.
     BackgroundColor( const std::vector< RGBColor >& colors );
-    /// Dtro
+    /// destrutor
     ~BackgroundColor() { };
-    /// Sample and returns a color, based on the raster coordinate.
+    /// Amostra e retorna uma cor, com base na coordenada raster.
     RGBColor sampleUV( real_type u, real_type v ) const;
 };
 
